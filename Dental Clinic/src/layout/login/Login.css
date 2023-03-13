@@ -2,6 +2,7 @@
     margin-top: 10em;
 }
 .Regi{
+    background-color: aqua;
     display: flex;
     justify-content: center;
     height: 70%;

@@ -6,8 +6,8 @@ import './Login.css'
 
 export const Login = () => {
   return (
+    <div className='Regi'>
     <Container className='boody'>
-      <div className='Regi'>
     <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
@@ -30,8 +30,8 @@ export const Login = () => {
       </Button>
       </div>
     </Form>
-    </div>
     </Container>
+    </div>
 
   );
 }

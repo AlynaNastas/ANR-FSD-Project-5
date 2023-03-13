@@ -1,0 +1,9 @@
+.button1{
+    display:flex;
+    justify-content: center;
+    margin-top: 1em;
+    margin-bottom: 3em;
+}
+.registerCss{
+    margin-top: 3em;
+}

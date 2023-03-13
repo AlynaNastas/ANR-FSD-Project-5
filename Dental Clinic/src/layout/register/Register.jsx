@@ -1,6 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/esm/Container';
 import Form from 'react-bootstrap/Form';
+import './Register.css'
 
 
 
@@ -9,7 +10,7 @@ export const Register = () => {
     <>
     
     <Container className="registerCss">
-      <Container className='info'>
+      <Container>
     <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Name</Form.Label>
@@ -41,9 +42,11 @@ export const Register = () => {
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Check me out" />
       </Form.Group>
+      <div className='button1'>
       <Button variant="primary" type="submit">
         Submit
       </Button>
+      </div>
     </Form>
     </Container>
     </Container>

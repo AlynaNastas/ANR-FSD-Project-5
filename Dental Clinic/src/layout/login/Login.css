@@ -1,4 +1,13 @@
 .boody{
-    margin-top: 15%;
-
+    margin-top: 10em;
+}
+.Regi{
+    display: flex;
+    justify-content: center;
+    height: 70%;
+}
+.button2{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10em;
 }

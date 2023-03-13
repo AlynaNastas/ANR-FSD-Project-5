@@ -7,6 +7,7 @@ import './Login.css'
 export const Login = () => {
   return (
     <Container className='boody'>
+      <div className='Regi'>
     <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
@@ -23,10 +24,13 @@ export const Login = () => {
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Check me out" />
       </Form.Group>
+      <div className='button2'>
       <Button variant="primary" type="submit">
         Submit
       </Button>
+      </div>
     </Form>
+    </div>
     </Container>
 
   );

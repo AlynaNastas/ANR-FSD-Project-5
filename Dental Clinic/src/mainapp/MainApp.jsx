@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import { Navbar1 } from "../components/Navbar1"
 import { Home } from "../layout/home/Home"
+import { Register } from "../layout/register/Register"
 import { Login } from "../layout/login/Login"
 
 
@@ -11,7 +12,6 @@ return (
     <Navbar1/>
     <Routes>
     <Route path= '/home' element={<Home/>}/>
-    <Route path= '/' element={<Login/>}/>
     </Routes>
     </>
 )

@@ -13,23 +13,23 @@ export const Footer1 = () => {
 <Row>
         <Col className='margin mt-2'>  
         <h4>EAST FINCHLEY</h4>
-        <p> <i class="bi bi-geo-alt"></i> 91 High Road, East Finchley,</p>
-        <p> <i class="bi bi-globe-europe-africa"></i> London, N2 8AG</p>
+        <p> <i className="bi bi-geo-alt"></i> 91 High Road, East Finchley,</p>
+        <p> <i className="bi bi-globe-europe-africa"></i> London, N2 8AG</p>
         </Col>
     <Col className='margin mt-2'>
         <h4>CONTACT</h4>
-        <p> <i class="bi bi-telephone"></i> +44 111 222 444 </p>
-        <p> <i class="bi bi-envelope-open-heart"></i> info@dentalstudio.com </p>
+        <p> <i className="bi bi-telephone"></i> +44 111 222 444 </p>
+        <p> <i className="bi bi-envelope-open-heart"></i> info@dentalstudio.com </p>
         </Col>
     <Col className='margin mt-2'>
             <h4>Opening Hours</h4>
-            <p><i class="bi bi-clock"></i> Monday - Friday</p>
+            <p><i className="bi bi-clock"></i> Monday - Friday</p>
             <p> 9:00am to 5:30pm </p>
         </Col>
     <Row>
-            <Col className='W1 mt-3 mb-1'><h3><i class="bi bi-whatsapp"></i></h3></Col>
-            <Col className='W2 mt-3 mb-1'><h3><i class="bi bi-facebook"></i></h3></Col>
-            <Col className='W3 mt-3 mb-1'><h3><i class="bi bi-instagram"></i></h3></Col>
+            <Col className='W1 mt-3 mb-1'><h3><i className="bi bi-whatsapp"></i></h3></Col>
+            <Col className='W2 mt-3 mb-1'><h3><i className="bi bi-facebook"></i></h3></Col>
+            <Col className='W3 mt-3 mb-1'><h3><i className="bi bi-instagram"></i></h3></Col>
     </Row>
     <Row>
         <Col className='Copy mt-2'>

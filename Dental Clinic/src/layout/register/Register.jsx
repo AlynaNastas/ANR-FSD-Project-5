@@ -1,11 +1,34 @@
+import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/esm/Container';
 import Form from 'react-bootstrap/Form';
+import { InputText } from '../../components/input/InputText';
 import './Register.css'
 
 
 
 export const Register = () => {
+
+  const [credenciales, setCredenciales]= useState ({
+    name:'',
+    surname:'',
+    email: '',
+    password: '',
+})
+
+
+
+const inputHandler = (e) => {
+setCredenciales((prevState) => ({
+    ...prevState,
+    [e.target.name]: e.target.value,
+}));
+}
+
+useEffect(() =>{console.log('Credenciales', credenciales)},[credenciales]);
+
+
+
   return (
     <>
     
@@ -14,7 +37,13 @@ export const Register = () => {
     <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Name</Form.Label>
-        <Form.Control type="email" placeholder="Enter name" />
+        <InputText  
+          className={'inputBasic'}
+          type={"text"}
+          name={'name'} 
+          placeholder={"Enter Name"}
+          changeFunction={(e) => inputHandler(e)} />
+
         <Form.Text className="text-muted">
           We'll never share your private information with anyone else.
         </Form.Text>
@@ -22,14 +51,26 @@ export const Register = () => {
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Surname</Form.Label>
-        <Form.Control type="email" placeholder="Enter surname" />
+        <InputText 
+          
+          className={'inputBasic'}
+          type={"text"}
+          name={'surname'} 
+          placeholder={"Enter Surname"}
+          changeFunction={(e) => inputHandler(e)} />
         <Form.Text className="text-muted">
         </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email adress</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
+        <InputText  
+        className={'inputBasic'}
+        type={"email"}
+        name={'email'} 
+        placeholder={"Enter email"}
+        changeFunction={(e) => inputHandler(e)} />
+
         <Form.Text className="text-muted">
           We'll never share your email with anyone else.
         </Form.Text>
@@ -37,11 +78,14 @@ export const Register = () => {
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
+        <InputText
+        className={'inputBasic'}
+        type={'password'}
+        name={'password'}
+        placeholder={'Introduce your password'}
+        changeFunction={(e) => inputHandler(e)}/>
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
+      
       <div className='button1'>
       <Button variant="primary" type="submit">
         Submit

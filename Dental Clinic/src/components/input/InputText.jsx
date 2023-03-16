@@ -10,6 +10,7 @@ export const InputText = ({className, type, name, placeholder, changeFunction}) 
         type={type}
         name={name}
         placeholder={placeholder}
+        onChange={changeFunction}
     />
     </>
     )

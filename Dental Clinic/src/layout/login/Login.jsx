@@ -1,30 +1,113 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Container from 'react-bootstrap/Container'
+import Container from 'react-bootstrap/Container';
 import { InputText } from '../../components/input/InputText';
-import './Login.css'
 import { useEffect, useState } from 'react';
+import './Login.css';
+import { validation } from '../../helpers/Validations';
 
 
 
 export const Login = () => {
 
 
-  const [credenciales, setCredenciales]= useState ({
+  const [credencials, setCredencials]= useState ({
     email: '',
     password: '',
 })
 
-
-
 const inputHandler = (e) => {
-setCredenciales((prevState) => ({
-    ...prevState,
-    [e.target.name]: e.target.value,
-}));
-}
+  setCredencials((previousState) => ({
+      ...previousState,
+      [e.target.name]: e.target.value,
+  }));
+  }
+  
 
-useEffect(() =>{console.log('Credenciales', credenciales)},[credenciales]);
+
+  const [credencialsError, setCredencialsError] = useState({
+  emailError: '',
+  passwordError: '',
+});
+
+
+const [validatedCredencials, setValidationCredentials] = useState({
+  emailValidated: false,
+  passwordValidated: false,
+})
+
+
+
+const [loginAct, setLoginAct] = useState(false);
+
+
+
+
+
+useEffect(() => {
+
+console.log('Credencials')
+  for(let error in credencialsError){
+    if(credencialsError[error] !== ""){
+      setLoginAct(false);
+      return;
+    }
+  }
+
+  for(let vacio in credencials){
+    if(credencials[vacio] === ""){
+      setLoginAct(false);
+      return;
+    }
+  }
+
+  for(let validation in validatedCredencials){
+    if(validatedCredencials[validation] === false){
+      setLoginAct(false);
+      return;
+    }
+  }
+
+
+  setLoginAct(true);
+});
+
+const checkError = (e) => {
+
+
+  let error = "";
+
+  const validat = validation(
+      e.target.name,
+      e.target.value,
+      e.target.required
+    );
+
+  error = validat.message;
+
+
+
+  setValidationCredentials((previousState) => ({
+    ...previousState,
+    [e.target.name + "Validated"]: validat.validation,
+  }));
+
+
+  setCredencialsError((previouState) => ({
+    ...previouState,
+    [e.target.name + "Error"]: error,
+  }));
+};
+
+const fakelog = () => {
+  console.log("victoria");
+};
+
+
+
+
+
+useEffect(() =>{console.log('Credencials', credencials)},[credencials]);
 
 
   return (
@@ -37,9 +120,10 @@ useEffect(() =>{console.log('Credenciales', credenciales)},[credenciales]);
         <InputText  
         className={'inputBasic'}
         type={"email"}
-        name={'name'} 
+        name={'email'} 
         placeholder={"Enter email"}
-        changeFunction={(e) => inputHandler(e)} />
+        changeFunction={(e) => inputHandler(e)}
+        blurFunction={(e)=> checkError(e)} />
       
 
         <Form.Text className="text-muted">
@@ -54,11 +138,16 @@ useEffect(() =>{console.log('Credenciales', credenciales)},[credenciales]);
         type={'password'}
         name={'password'}
         placeholder={'Introduce your password'}
-        changeFunction={(e) => inputHandler(e)}/>
+        changeFunction={(e) => inputHandler(e)}
+        blurFunction={(e)=> checkError(e)}/>
       </Form.Group>
 
+      <div>{credencialsError.emailError}</div>
+
+
       <div className='button2'>
-      <Button variant="primary" type="submit">
+      <Button 
+      onClick= {loginAct ? () => { fakelog(); }: () => {} } variant="primary">
         Submit
       </Button>
       </div>

@@ -9,7 +9,7 @@ import './Register.css'
 
 export const Register = () => {
 
-  const [credenciales, setCredenciales]= useState ({
+  const [credencials, setCredencials]= useState ({
     name:'',
     surname:'',
     email: '',
@@ -19,13 +19,13 @@ export const Register = () => {
 
 
 const inputHandler = (e) => {
-setCredenciales((prevState) => ({
+setCredencials((prevState) => ({
     ...prevState,
     [e.target.name]: e.target.value,
 }));
 }
 
-useEffect(() =>{console.log('Credenciales', credenciales)},[credenciales]);
+useEffect(() =>{console.log('Credencials', credencials)},[credencials]);
 
 
 

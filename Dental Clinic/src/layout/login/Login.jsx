@@ -5,16 +5,30 @@ import { InputText } from '../../components/input/InputText';
 import { useEffect, useState } from 'react';
 import './Login.css';
 import { validation } from '../../helpers/Validations';
+import { logMe } from '../../services/apiCall';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { login, userData } from '../userSlice';
+import { decodeToken, useJwt } from "react-jwt";
+
 
 
 
 export const Login = () => {
+
+  const credentialsRdx = useSelector(userData);
+
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+  
 
 
   const [credencials, setCredencials]= useState ({
     email: '',
     password: '',
 })
+
 
 const inputHandler = (e) => {
   setCredencials((previousState) => ({
@@ -41,12 +55,13 @@ const [validatedCredencials, setValidationCredentials] = useState({
 const [loginAct, setLoginAct] = useState(false);
 
 
+const [welcome, setWelcome] = useState("");
 
 
 
 useEffect(() => {
 
-console.log('Credencials')
+console.log(credencials)
   for(let error in credencialsError){
     if(credencialsError[error] !== ""){
       setLoginAct(false);
@@ -72,8 +87,15 @@ console.log('Credencials')
   setLoginAct(true);
 });
 
-const checkError = (e) => {
 
+useEffect(() => {
+  if (credentialsRdx.credentials.token) {
+    //Si No token...home redirect
+    navigate("/");
+  }
+}, []);
+
+const checkError = (e) => {
 
   let error = "";
 
@@ -99,18 +121,48 @@ const checkError = (e) => {
   }));
 };
 
-const fakelog = () => {
+/*const fakelog = () => {
   console.log("victoria");
+};*/
+
+
+const logmee = () => {
+
+  logMe(credencials)
+      .then(
+          respuesta => { 
+              let decodificado = decodeToken(respuesta.data)
+              let datosBackend = {
+                  token: respuesta.data,
+                  usuario: decodificado
+              }
+
+              //Este es el momento en el que guardo en REDUX
+              dispatch(login({credentials: datosBackend}));
+
+              console.log(">> aquí sale el nombre",datosBackend.usuario.name)
+
+              setWelcome(`Hola de nuevo ${datosBackend.usuario.name}`);
+
+              setTimeout(() => {
+                navigate("/");
+              }, 3000);
+          }
+      )
+      .catch(error => console.log(error))
+
 };
 
 
-
-
-
-useEffect(() =>{console.log('Credencials', credencials)},[credencials]);
+//useEffect(() =>{console.log('Credencials', credencials)},[credencials]);
 
 
   return (
+
+
+  
+
+
     <div className='Regi'>
     <Container className='boody'>
     <Form>
@@ -118,7 +170,7 @@ useEffect(() =>{console.log('Credencials', credencials)},[credencials]);
         <Form.Label>Email address</Form.Label>
 
         <InputText  
-        className={'inputBasic'}
+        className={'InputBasic'}
         type={"email"}
         name={'email'} 
         placeholder={"Enter email"}
@@ -129,25 +181,25 @@ useEffect(() =>{console.log('Credencials', credencials)},[credencials]);
         <Form.Text className="text-muted">
           We'll never share your email with anyone else.
         </Form.Text>
+        <div className='RedError'>{credencialsError.emailError}</div>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <InputText
-        className={'inputBasic'}
-        type={'password'}
-        name={'password'}
-        placeholder={'Introduce your password'}
-        changeFunction={(e) => inputHandler(e)}
-        blurFunction={(e)=> checkError(e)}/>
+          <Form.Label>Password</Form.Label>
+          <InputText
+          className={'InputBasic'}
+          type={'password'}
+          name={'password'}
+          placeholder={'Introduce your password'}
+          changeFunction={(e) => inputHandler(e)}
+          blurFunction={(e)=> checkError(e)}/>
+        <div className='RedError'>{credencialsError.passwordError} </div>
       </Form.Group>
-
-      <div>{credencialsError.emailError}</div>
 
 
       <div className='button2'>
       <Button 
-      onClick= {loginAct ? () => { fakelog(); }: () => {} } variant="primary">
+      onClick= {loginAct ? () => { logmee(); }: () => {} } variant="primary">
         Submit
       </Button>
       </div>
@@ -157,4 +209,3 @@ useEffect(() =>{console.log('Credencials', credencials)},[credencials]);
 
   );
 }
-

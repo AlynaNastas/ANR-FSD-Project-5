@@ -9,7 +9,7 @@ import { logMe } from '../../services/apiCall';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, userData } from '../userSlice';
-import { decodeToken, useJwt } from "react-jwt";
+import { decodeToken } from "react-jwt";
 
 
 
@@ -132,11 +132,15 @@ const logmee = () => {
       .then(
           respuesta => { 
               let decodificado = decodeToken(respuesta.data)
+              console.log(respuesta.data)
               let datosBackend = {
                   token: respuesta.data,
                   usuario: decodificado
+        
               }
-
+          
+          
+                  console.log(datosBackend)
               //Este es el momento en el que guardo en REDUX
               dispatch(login({credentials: datosBackend}));
 
@@ -153,8 +157,6 @@ const logmee = () => {
 
 };
 
-
-//useEffect(() =>{console.log('Credencials', credencials)},[credencials]);
 
 
   return (

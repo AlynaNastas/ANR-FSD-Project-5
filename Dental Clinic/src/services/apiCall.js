@@ -6,3 +6,6 @@ export const logMe = async (body) =>{
 
     return await axios.post(`${root}users/login`, body);
 }
+export const registUser = async (body) => {
+    return await axios.post(`${root}users`, body);
+    }

@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import "./Header.css";
+
 
 //Método de conexión en modo lectura a RDX.
 import { useSelector } from "react-redux";

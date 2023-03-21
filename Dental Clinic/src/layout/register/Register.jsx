@@ -213,8 +213,8 @@ useEffect(() => {
 
       <Form.Group className="mb-3" controlId="formBasicAdress">
         <Form.Label>Address</Form.Label>
+        
         <InputText 
-          
           className={'inputBasic'}
           type={"text"}
           name={'direction'} 

@@ -3,9 +3,19 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useSelector } from "react-redux";
+import { userData } from "../layout/userSlice";
 
 export const Navbar1 = () => {
+
+
+    const datosCredentialsRedux = useSelector(userData);
+
     return (
+
+        
+
+
         <Navbar bg="dark" expand="lg" variant="dark">
     <Container>
         <Navbar.Brand href="#home">Dental Studio</Navbar.Brand>

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/esm/Container';
 import Form from 'react-bootstrap/Form';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { InputText } from '../../components/input/InputText';
 import { validation } from '../../helpers/Validations';
@@ -11,6 +12,8 @@ import './Register.css'
 
 
 export const Register = () => {
+
+
 
   const [credencials, setCredencials]= useState ({
     name:'',
@@ -61,13 +64,12 @@ const [validatedCredencials, setValidationCredentials] = useState({
 
 const [registerAct, setRegisterAct] = useState(false);
 
-const navigate = useNavigate();
+
 
 
 
 useEffect(() => {
 
-  console.log(credencials)
     for(let error in credencialsError){
       if(credencialsError[error] !== ""){
         setRegisterAct(false);
@@ -92,6 +94,10 @@ useEffect(() => {
   
     setRegisterAct(true);
   });  
+
+
+
+
 
   const checkError = (e) => {
 
@@ -124,13 +130,16 @@ useEffect(() => {
 
   const registerMe = () => {
     
-  registUser (credencials)
-      .then(() => {
-        setTimeout(() => {
-          navigate("/login");
-        }, 3000);
-      })
-      .catch(error => console.log(error));
+  console.log(credencials)
+    
+   registUser (credencials)
+       .then((results) => {
+        console.log(results)
+         setTimeout(() => {
+           navigate("/login");
+         }, 3000);
+       })
+       .catch(error => console.log(error));
   };
 
 
@@ -258,7 +267,10 @@ useEffect(() => {
       </Form.Group>
       
       <div className='button1'>
-      <Button  onClick= {registerAct ? () => { registerMe(); }: () => {} } variant="primary" type="submit">
+      <Button  onClick= {
+        //registerAct ? () => { registerMe(); }: () => {} 
+        ()=>registerMe()
+        } variant="primary" >
 
         Submit
       </Button>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const root = "http://localhost:3000/"
+const root = "https://gh-fsd-2023-p4-bbdd-production.up.railway.app/"
 
 export const logMe = async (body) =>{
 

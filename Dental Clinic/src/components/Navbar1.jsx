@@ -51,6 +51,7 @@ export const Navbar1 = () => {
                 <>
     
                 <Nav.Link as={Link}to="/about">About</Nav.Link> 
+                <Nav.Link as={Link}to="/profile">Profile</Nav.Link>
                 <Nav.Link onClick= {logout} as={Link}to="/home">Logout</Nav.Link>
                 <NavDropdown title="Dental treatments" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">Invisible orthodontics</NavDropdown.Item>

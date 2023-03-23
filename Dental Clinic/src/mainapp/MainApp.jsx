@@ -5,6 +5,7 @@ import { Register } from "../layout/register/Register"
 import { Login } from "../layout/login/Login"
 import { Footer1 } from "../components/footer/Footer1"
 import { UserDetails } from "../layout/user/userDetails"
+import { Profile1 } from "../layout/profile/Profile1"
 
 
 
@@ -18,6 +19,7 @@ return (
     <Route path= '/login' element={<Login/>}/>
     <Route path= '/register' element={<Register/>}/>
     <Route path= '/userDetail' element={<UserDetails/>}/>
+    <Route path= '/profile' element={<Profile1/>}/>
     </Routes>
     <Footer1/>
     </>

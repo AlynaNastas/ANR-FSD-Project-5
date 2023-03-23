@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
 import { useSelector } from 'react-redux';
 import { getUserProfile } from '../../services/apiCall';
 import { userData } from '../userSlice';
@@ -31,22 +33,39 @@ export const Profile1 = () => {
             getUserProfile(credencialRdx?.credentials?.token)
          
             .then((result) => {
-                console.log(result.data);
+                console.log(result.data, '--------');
                 setUser({
-                    name: result.data.user.name,
-                    surname: result.data.user.surname,
-                    nif: result.data.user.nif,
-                    birth_date: result.data.user.birth_date,
-                    direction: result.data.user.direction,
-                    email: result.data.user.email,
-                    phone: result.data.user.phone,
-                    password: result.data.user.password
+                   
+                    name: result.data.name,
+                    surname: result.data.surname,
+                    nif: result.data.nif,
+                    birth_date: result.data.birth_date,
+                    direction: result.data.direction,
+                    email: result.data.email,
+                    phone: result.data.phone,
                 });
             })
             .catch((error) => console.log(error));
             }
+            console.log(user.name, 'adios' )
         }, []);
   return (
-    <div>Profile</div>
-  )
+    <>
+       <Container>
+      <Card>
+        {/* <Card.Img variant="top" src={personaje.image}/> */}
+        <Card.Body>
+          <Card.Title>Name:{user.name} </Card.Title>
+          <Card.Text>Surname:{user.surname} </Card.Text>
+          <Card.Text>Nif:{user.nif} </Card.Text>
+          <Card.Text>Birth date:{user.birth_date} </Card.Text>
+          <Card.Text>Direction:{user.direction} </Card.Text>
+          <Card.Text>Email:{user.email} </Card.Text>
+          <Card.Text>Phone:{user.phone} </Card.Text>
+        </Card.Body>
+    </Card>
+    </Container>
+
+    </>
+    )
 }

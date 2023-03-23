@@ -49,7 +49,7 @@ return  <Navbar bg="dark" expand="lg" variant="dark">
                             Teeth whitening
                     </NavDropdown.Item>
                 <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">login</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.4"> Anhoter service </NavDropdown.Item>
         </NavDropdown>
                 </>
             </Nav>
@@ -77,7 +77,7 @@ if (datosCredentialsRdx.credentials.usuario.roles.includes('Admin')) {
                 Detail
             </Nav.Link>
                 <Nav.Link as={Link} to="/userDetails">
-                UserDetails
+                User Details
                 </Nav.Link>
             <NavDropdown title="Dental treatments" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">

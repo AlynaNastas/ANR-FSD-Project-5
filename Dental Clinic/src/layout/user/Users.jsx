@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import { bringUsers } from "../../services/apiCall" 
-import { useNavigate } from "react-router-dom"
+import { bringUsers } from "../../services/apiCall"; 
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { userData } from "../userSlice";
 
 export const Users = () => {
 
-    const [usuarios, setUsuarios] = useState([])
+    const [usuarios, setUsuarios] = useState([]);
 
     const RdxCredentials = useSelector(userData);
 

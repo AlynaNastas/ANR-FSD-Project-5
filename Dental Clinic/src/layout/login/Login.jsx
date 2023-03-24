@@ -132,10 +132,12 @@ const logmee = () => {
       .then(
           respuesta => { 
               let decodificado = decodeToken(respuesta.data)
-              console.log(respuesta.data)
+              console.log(respuesta.data,'esto es hola')
               let datosBackend = {
                   token: respuesta.data,
                   usuario: decodificado
+                
+                
         
               }
           

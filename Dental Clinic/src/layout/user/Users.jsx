@@ -16,7 +16,7 @@ export const Users = () => {
             bringUsers(RdxCredentials.credentials.token)
                 .then(
                     result => {
-                        console.log(result)
+                        console.log(result.data, 'blaaaa')
 
                         setUsuarios(result.data)
                     }
@@ -24,11 +24,54 @@ export const Users = () => {
                 .catch(error => console.log(error))
         }
 
-        console.log(usuarios)
+        console.log(usuarios, 'lololololo')
     },[usuarios])
+
+    const selected = (persona) => {
+        
+        //Primero guardo en RDX los datos escogidos...
+
+        dispatch(addChoosen({ choosenObject: persona }))
+
+        setTimeout(()=>{
+            navigate("/userdetails");
+        },250)
+    }
 
     return (
 
-        <div>soy alyna y soy divina</div>
+<div>
+
+{  usuarios.length > 0 ? 
+
+    (<div>
+
+        {
+            usuarios.map(
+                persona => {
+                    return (
+                        <div 
+                            onClick={()=>selected(persona)} 
+                            key={persona.id}>
+
+                            {persona.name}
+                            
+                            
+                        </div>
+                    )
+                }
+            )
+        }
+
+
+    </div>)
+
+    : 
+
+    (<div>ESTAN VINIENDO</div>)
+
+}
+
+</div>
     )
 }

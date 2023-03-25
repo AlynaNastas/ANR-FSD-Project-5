@@ -23,7 +23,7 @@ const datosCredentialsRdx = useSelector(userData);
 
 return  <Navbar bg="dark" expand="lg" variant="dark">
         <Container>
-            <Navbar.Brand href="#home">Dental Studio</Navbar.Brand>
+            <Navbar.Brand as={Link} to="/home">Dental Studio</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto"> 
@@ -48,7 +48,7 @@ return  <Navbar bg="dark" expand="lg" variant="dark">
                             Teeth whitening
                     </NavDropdown.Item>
                 <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">login</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.4">Reviews</NavDropdown.Item>
         </NavDropdown>
                 </>
             </Nav>
@@ -61,7 +61,7 @@ if (datosCredentialsRdx.credentials.usuario.roles.includes('Admin')) {
 
     return <Navbar bg="dark" expand="lg" variant="dark">
     <Container>
-        <Navbar.Brand href="#home">Dental Studio</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/home"> Dental Studio </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto"> 
@@ -92,7 +92,7 @@ if (datosCredentialsRdx.credentials.usuario.roles.includes('Admin')) {
                         Teeth whitening
                 </NavDropdown.Item>
             <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.4">login</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.4">Reviews</NavDropdown.Item>
     </NavDropdown>
         </>
         <Nav.Link onClick= {logout} as={Link}to="/home">Logout</Nav.Link>
@@ -107,7 +107,7 @@ if (datosCredentialsRdx.credentials.usuario.roles.includes('Doctor')) {
 
     return <Navbar bg="dark" expand="lg" variant="dark">
     <Container>
-        <Navbar.Brand href="#home">Dental Studio</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/home"></Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto"> 
@@ -135,7 +135,7 @@ if (datosCredentialsRdx.credentials.usuario.roles.includes('Doctor')) {
                         Teeth whitening
                 </NavDropdown.Item>
             <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.4">login</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.4">Reviews</NavDropdown.Item>
     </NavDropdown>
             </>
             <Nav.Link onClick= {logout} as={Link}to="/home">Logout</Nav.Link>
@@ -150,7 +150,7 @@ if (datosCredentialsRdx.credentials.usuario.roles.includes('User')) {
 
     return <Navbar bg="dark" expand="lg" variant="dark">
     <Container>
-        <Navbar.Brand href="#home">Dental Studio</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/home"> Dental Studio </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto"> 

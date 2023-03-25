@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userData } from "../userSlice";
 import { addChoosen } from '../detailSlice';
+import Container from 'react-bootstrap/esm/Container';
+import Card from 'react-bootstrap/esm/Card';
+import D12 from '../../assets/D12.jpg'
 
 export const Users = () => {
 
@@ -47,11 +50,13 @@ export const Users = () => {
     return (
 
 <div>
+    <Container> 
+
+            <Card style={{ width: '20rem' }}>
 
 {  usuarios.length > 0 ? 
 
-    (<div>
-
+    (<div> 
         {
             usuarios.map(
                 persona => {
@@ -76,7 +81,8 @@ export const Users = () => {
     (<div>coming...</div>)
 
 }
-
+            </Card>
+    </Container>
 </div>
     )
 }

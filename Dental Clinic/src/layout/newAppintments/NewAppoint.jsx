@@ -17,6 +17,23 @@ console.log(credentialsRdx.credentials.usuario)
 
   //const navigate = useNavigate();
 
+
+  const [treatments, setTreatments ] = useState([
+
+  {  id:1,
+    treatment: "Invisible orthodontics"
+  },
+  {
+    id:2,
+    treatment: "Dental cleaning"
+  },
+  {
+    id:3,
+    treatment: "Teeth whitening"
+  }
+
+  ]);
+
   
 
 
@@ -63,7 +80,7 @@ const buttonApp = () =>{
     }).catch(error => {setCredencials(error.message)})
 }
 
-console.log(credencials,'lolololoo')
+console.log(credencials,'enviando cita a railway')
 
   return (
 
@@ -80,7 +97,7 @@ console.log(credencials,'lolololoo')
         <InputText  
         className={'InputBasic'}
         type={"number"}
-        maxLength={20}
+        maxLength={10}
         name={'doctor_id'} 
         placeholder={""}
         changeFunction={(e) => inputHandler(e)}
@@ -146,3 +163,10 @@ console.log(credencials,'lolololoo')
 
   );
 }
+
+
+
+
+
+
+

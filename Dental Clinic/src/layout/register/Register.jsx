@@ -1,3 +1,4 @@
+import D3 from '../../assets/D3.jpeg'
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/esm/Container';
@@ -147,10 +148,11 @@ useEffect(() => {
 
   return (
     <>
-    
-    <Container className="registerCss">
+  
+  <Container className="registerCss">
       <Container>
     <Form>
+    <div>  <img className="d-block w-100" src={D3} alt="First slide" />
       <Form.Group className="mb-3" controlId="formBasicName">
         <Form.Label>Name</Form.Label>
         <InputText  
@@ -275,9 +277,11 @@ useEffect(() => {
         Submit
       </Button>
       </div>
+      </div> 
     </Form>
     </Container>
     </Container>
+   
     </>
   );
 }

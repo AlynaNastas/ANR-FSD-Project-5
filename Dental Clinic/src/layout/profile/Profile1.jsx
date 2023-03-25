@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import { useSelector } from 'react-redux';
 import { getUserProfile } from '../../services/apiCall';
 import { userData } from '../userSlice';
+import { CardProfile } from '../../components/cardProfile/CardProfile';
 
 
 
@@ -50,6 +51,7 @@ export const Profile1 = () => {
             console.log(user.name, 'adios' )
         }, []);
   return (
+
     <>
        <Container>
       <Card>
@@ -65,7 +67,6 @@ export const Profile1 = () => {
         </Card.Body>
     </Card>
     </Container>
-
     </>
-    )
+  )
 }

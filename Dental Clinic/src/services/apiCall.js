@@ -27,3 +27,19 @@ export const bringUsers = async (token) => {
     };
     return await axios.get(`${root}/admin/users`, config);
 }
+export const bringUsersDoctor = async (token) => {
+    const config = {
+        headers: {
+            Authorization : `Bearer ${token} `  
+        }
+    };
+    return await axios.get(`${root}/admin/doctors`, config);
+}
+export const createAppointment = async (body, token) => {
+    const config = {
+        headers: {
+            Authorization : `Bearer ${token} `  
+        }
+    };
+    return await axios.post(`${root}/appoint`, body, config);
+}

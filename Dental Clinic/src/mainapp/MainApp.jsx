@@ -4,9 +4,10 @@ import { Home } from "../layout/home/Home"
 import { Register } from "../layout/register/Register"
 import { Login } from "../layout/login/Login"
 import { Footer1 } from "../components/footer/Footer1"
-import { UserDetails } from "../layout/user/userDetails"
 import { Profile1 } from "../layout/profile/Profile1"
 import { Users } from "../layout/user/Users"
+import { UserDoctors } from "../layout/user/UserDoctors"
+import { NewAppoint } from "../layout/newAppintments/NewAppoint"
 
 
 
@@ -16,12 +17,14 @@ return (
     <>
     <Navbar1/>
     <Routes>
-    <Route path= '/' element={<Home/>}/>
+    <Route path= '/home' element={<Home/>}/>
     <Route path= '/login' element={<Login/>}/>
     <Route path= '/register' element={<Register/>}/>
-    <Route path= '/userDetail' element={<UserDetails/>}/>
+    <Route path= '/userDoctor' element={<UserDoctors/>}/>
+    <Route path= '/createappointment' element={<NewAppoint/>}/>
     <Route path= '/profile' element={<Profile1/>}/>
     <Route path= '/users' element={<Users/>}/>
+
     </Routes>
     <Footer1/>
     </>

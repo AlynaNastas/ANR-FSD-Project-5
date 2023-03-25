@@ -5,7 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { useDispatch, useSelector } from "react-redux";
 import { userData, userout } from "../layout/userSlice";
-import { useEffect } from "react";
+
 
 export const Navbar1 = () => {
 const dispatch = useDispatch();
@@ -14,8 +14,7 @@ const logout = () => {
     dispatch(userout({ credentials: {}, token: "" }));
 };
 
-    useEffect(() => {console.log(datosCredentialsRdx )
-},[])
+
 
 const datosCredentialsRdx = useSelector(userData);
 
@@ -122,6 +121,9 @@ if (datosCredentialsRdx.credentials.usuario.roles.includes('Doctor')) {
         <Nav.Link as={Link} to="/detail">
                 Detail
             </Nav.Link>
+            <Nav.Link as={Link} to="/userDoctor">
+                Users
+            </Nav.Link>
             <NavDropdown title="Dental treatments" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">
                     Invisible orthodontics
@@ -158,6 +160,12 @@ if (datosCredentialsRdx.credentials.usuario.roles.includes('User')) {
         </Nav.Link>
             <Nav.Link as={Link} to="/about">
                 About
+            </Nav.Link>
+            <Nav.Link as={Link} to="/profile">
+                Profile
+            </Nav.Link>
+            <Nav.Link as={Link} to="/createappointment">
+                Schedule appointment
             </Nav.Link>
             <NavDropdown title="Dental treatments" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">

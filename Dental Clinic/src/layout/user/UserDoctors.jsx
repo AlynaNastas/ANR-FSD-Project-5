@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from 'react';
-import { bringUsers } from "../../services/apiCall"; 
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userData } from "../userSlice";
 import { addChoosen } from '../detailSlice';
+import { bringUsersDoctor } from '../../services/apiCall';
 
-export const Users = () => {
+export const UserDoctors = () => {
 
-    const [usuarios, setUsuarios] = useState([]);
+    const [user, setUser] = useState([]);
 
     const RdxCredentials = useSelector(userData);
 
@@ -18,20 +18,20 @@ export const Users = () => {
 
     useEffect(()=>{
 
-        if(usuarios.length === 0){
-            bringUsers(RdxCredentials.credentials.token)
+        if(user.length === 0){
+            bringUsersDoctor(RdxCredentials.credentials.token)
                 .then(
                     result => {
                         console.log(result.data, 'blaaaa')
 
-                        setUsuarios(result.data)
+                        setUser(result.data)
                     }
                 )
                 .catch(error => console.log(error))
         }
 
-        console.log(usuarios, 'lololololo')
-    },[usuarios])
+        console.log(user, 'lololololo')
+    },[user])
 
     const selected = (persona) => {
         
@@ -40,20 +40,20 @@ export const Users = () => {
         dispatch(addChoosen({ choosenObject: persona }))
 
         setTimeout(()=>{
-            navigate("/userDetails");
+            navigate("/home");
         },250)
     }
-
+    console.log(user, "hola soy users")
     return (
 
 <div>
 
-{  usuarios.length > 0 ? 
+{  user.length > 0 ? 
 
     (<div>
 
         {
-            usuarios.map(
+            user.map(
                 persona => {
                     return (
                         <div 
@@ -80,3 +80,4 @@ export const Users = () => {
 </div>
     )
 }
+

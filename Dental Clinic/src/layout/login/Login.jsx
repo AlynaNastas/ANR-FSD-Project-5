@@ -10,6 +10,8 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, userData } from '../userSlice';
 import { decodeToken } from "react-jwt";
+import D6 from '../../assets/D6.jpeg'
+
 
 
 
@@ -166,9 +168,10 @@ const logmee = () => {
 
   
 
-
     <div className='Regi'>
     <Container className='boody'>
+
+    <div> <img  className="d-block w-100" src={D6} alt="First slide" /> 
     <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
@@ -199,8 +202,6 @@ const logmee = () => {
           blurFunction={(e)=> checkError(e)}/>
         <div className='RedError'>{credencialsError.passwordError} </div>
       </Form.Group>
-
-
       <div className='button2'>
       <Button 
       onClick= {loginAct ? () => { logmee(); }: () => {} } variant="primary">
@@ -208,6 +209,7 @@ const logmee = () => {
       </Button>
       </div>
     </Form>
+    </div>
     </Container>
     </div>
 

@@ -1,4 +1,4 @@
-import D3 from '../../assets/D3.jpeg'
+import D9 from '../../assets/D9.jpeg'
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/esm/Container';
@@ -152,7 +152,7 @@ useEffect(() => {
   <Container className="registerCss">
       <Container>
     <Form>
-    <div>  <img className="d-block w-100" src={D3} alt="First slide" />
+    <div>  <img className="d-block w-100" src={D9} alt="First slide" />
       <Form.Group className="mb-3" controlId="formBasicName">
         <Form.Label>Name</Form.Label>
         <InputText  

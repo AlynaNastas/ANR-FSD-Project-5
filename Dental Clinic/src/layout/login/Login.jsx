@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, userData } from '../userSlice';
 import { decodeToken } from "react-jwt";
-import D6 from '../../assets/D6.jpeg'
+import D11 from '../../assets/D11.jpg'
 
 
 
@@ -171,7 +171,7 @@ const logmee = () => {
     <div className='Regi'>
     <Container className='boody'>
 
-    <div> <img  className="d-block w-100" src={D6} alt="First slide" /> 
+    <div> <img  className="d-block w-100" src={D11} alt="First slide" /> 
     <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>

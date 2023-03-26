@@ -24,7 +24,7 @@ export const ViewAppoint = () => {
             viewUsersappoint(RdxCredentials.credentials.token)
                 .then(
                     result => {
-                        console.log(result.data, 'blaaaa')
+                     
 
                         setAppointments(result.data)
                     }
@@ -35,7 +35,7 @@ export const ViewAppoint = () => {
         
     },[appointments])
 
-    console.log(appointments, 'Hi')
+
 
     return (
         <>

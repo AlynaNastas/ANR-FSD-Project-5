@@ -34,7 +34,7 @@ export const Profile1 = () => {
             getUserProfile(credencialRdx?.credentials?.token)
 
             .then((result) => {
-                console.log(result.data, '--------');
+
                 setUser({
 
                     name: result.data.name,
@@ -48,7 +48,7 @@ export const Profile1 = () => {
             })
             .catch((error) => console.log(error));
             }
-            console.log(user.name, 'adios' )
+       
         }, []);
   return (
 

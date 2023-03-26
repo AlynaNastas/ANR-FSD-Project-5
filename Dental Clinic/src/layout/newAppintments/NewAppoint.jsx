@@ -3,7 +3,6 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import { InputText } from '../../components/input/InputText';
 import { useState } from 'react';
-//import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { userData } from '../userSlice';
 import { createAppointment } from '../../services/apiCall';
@@ -15,10 +14,9 @@ export const NewAppoint = () => {
   const credentialsRdx = useSelector(userData);
 console.log(credentialsRdx.credentials.usuario)
 
-  //const navigate = useNavigate();
 
 
- /* const [treatments, setTreatments ] = useState([
+ const [treatments, setTreatments ] = useState([
 
   {  id:1,
     treatmentname: "Invisible orthodontics"
@@ -32,7 +30,7 @@ console.log(credentialsRdx.credentials.usuario)
     treatmentname: "Teeth whitening"
   }
 
-  ]);*/
+  ]);
 
   const [doctors, setDoctors] = useState([
     {
@@ -46,11 +44,7 @@ console.log(credentialsRdx.credentials.usuario)
   ]);
 
 
-  
-
-
   const [credencials, setCredencials]= useState ({
-   
 
             doctor_id:'',
             patient_id : credentialsRdx.credentials.usuario.userId,
@@ -67,18 +61,7 @@ const inputHandler = (e) => {
   }));
   }
 
-
-
-
-
-//const [welcome, setWelcome] = useState("");
-
-
-
-
-
 const checkError = (e) => {};
-
 
 
 
@@ -88,11 +71,8 @@ const buttonApp = () =>{
     createAppointment(credencials, credentialsRdx.credentials.token )
     .then ( result =>{
         setCredencials(result.data)
-        //setWelcome(`Your appointment is...${credencials.date}`)
     }).catch(error => {setCredencials(error.message)})
 }
-
-console.log(credencials,'enviando cita a railway')
 
   return (
 
@@ -103,18 +83,6 @@ console.log(credencials,'enviando cita a railway')
     <div className='Reg'>
     <Container className='boody'>
     <Form>
-      {/* <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Doctor</Form.Label>
-
-        <InputText  
-        className={'InputBasic'}
-        type={"number"}
-        maxLength={10}
-        name={'doctor_id'} 
-        placeholder={""}
-        changeFunction={(e) => inputHandler(e)}
-        blurFunction={(e)=> checkError(e)} />
-    </Form.Group> */}
 
     <Form.Label>Doctor:</Form.Label>
         <Form.Select name={"doctor_id"} onChange={(e) => inputHandler(e)} aria-label="Default select example">
@@ -126,39 +94,15 @@ console.log(credencials,'enviando cita a railway')
                                     })}
                                 </Form.Select>
 
-
-    {/* <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Patient</Form.Label>
-          <InputText
-          className={'InputBasic'}
-          type={'text'}
-          name={'patient_id'}
-          placeholder={''}
-          changeFunction={(e) => inputHandler(e)}
-          blurFunction={(e)=> checkError(e)}/>
-</Form.Group> */}
-
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Intervention</Form.Label>
-          <InputText
-          className={'InputBasic'}
-          type={'text'}
-          name={'intervention_id'}
-          placeholder={''}
-          changeFunction={(e) => inputHandler(e)}
-          blurFunction={(e)=> checkError(e)}/>
-    
-      </Form.Group>
-
-      {/* <Form.Label>Interventions:</Form.Label>
-               <Form.Select name={"Intervention_id"} onChange={(e) => inputHandler(e)} aria-label="Default select example">
-                                    <option>Choose your Treatment:</option>
-                                    {treatments.map((treatment) => {
+<Form.Label>Doctor:</Form.Label>
+        <Form.Select name={"intervention_id"} onChange={(e) => inputHandler(e)} aria-label="Default select example">
+                                    <option>Choose Intervention:</option>
+                                    {treatments.map((treat) => {
                                         return (
-                                            <option key={treatment.id} value={treatment.id}>{treatment.treatmentname}</option>
+                                            <option key={treat.id} value={treat.id}>{treat.treatmentname}</option>
                                         )
                                     })}
-                                </Form.Select> */}
+                                </Form.Select>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Time slot</Form.Label>

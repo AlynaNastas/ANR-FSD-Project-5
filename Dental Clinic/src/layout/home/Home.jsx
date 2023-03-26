@@ -7,9 +7,6 @@ import D5 from '../../assets/D5.png'
 export const Home = () => {
   return (
 
-
-
-
     <Carousel>
       <Carousel.Item>
         <img

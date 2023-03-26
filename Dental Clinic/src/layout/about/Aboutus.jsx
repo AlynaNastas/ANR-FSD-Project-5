@@ -11,7 +11,7 @@ export const Aboutus = () => {
   return (
    <>
 
-    <Row xs={1} md={2} className="g-4">
+    <Row xs={1} md={2} className="Center">
       {Array.from({ length: 1 }).map((_, idx) => (
         <Col>
           <Card>

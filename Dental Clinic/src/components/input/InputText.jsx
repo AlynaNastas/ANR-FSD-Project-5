@@ -1,6 +1,6 @@
 
 import Form from 'react-bootstrap/Form'
-import './InputText.css'
+
 
 export const InputText = ({className, type, name, placeholder, changeFunction, blurFunction}) => {
     return (

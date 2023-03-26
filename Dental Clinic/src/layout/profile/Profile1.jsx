@@ -28,17 +28,15 @@ export const Profile1 = () => {
     });
    
     useEffect(() => {
-       // const currentToken = credencialRdx?.credentials?.token
 
-       console.log(credencialRdx.credentials, 'hola')
-       console.log(credencialRdx, 'que te jodan redux')
-       if (user.name === "") {
+
+      if (user.name === "") {
             getUserProfile(credencialRdx?.credentials?.token)
-         
+
             .then((result) => {
                 console.log(result.data, '--------');
                 setUser({
-                   
+
                     name: result.data.name,
                     surname: result.data.surname,
                     nif: result.data.nif,
@@ -56,7 +54,7 @@ export const Profile1 = () => {
 
     <>
 
-       <Container className='Center' >
+    <Container className='Center' >
       <Card> 
         <Card.Body>
           <Card.Title>Name:&nbsp; {user.name} </Card.Title>
@@ -68,7 +66,7 @@ export const Profile1 = () => {
           <Card.Title>Phone:&nbsp; {user.phone} </Card.Title>
         </Card.Body>
     </Card>
-    </Container>
+  </Container>
 
     </>
   )

@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import { bringUsers, viewUsersappoint } from "../../services/apiCall"; 
+import { viewUsersappoint } from "../../services/apiCall"; 
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userData } from "../userSlice";
-import { addChoosen } from '../detailSlice';
 import Container from 'react-bootstrap/esm/Container';
 import Card from 'react-bootstrap/esm/Card';
 
@@ -47,29 +46,21 @@ export const ViewAppoint = () => {
                     appointments.map(
                         appoint => {
                             return (
+
                                 <>
-                                {/* <div
-                                    onClick={()=>selected(appoint)}
-                                    key={appoint.id}>
-                                    {appoint.hour} &nbsp;
-                                    {appoint.date} &nbsp;
-                                    {appoint.Employee.User.name}
-                                </div> */}
                                 <Container className='Center' >
-                                <Card>
-                                <Card.Body
-                                    onClick={()=>selected(appoint)}
-                                    key={appoint.id}>
-                                    <ul>
-                                        <li>{appoint.id}</li>
-                                        <li>{appoint.Intervention.name} &nbsp;</li>
-                                        <li>£{appoint.Intervention.price}</li>
-                                        <li>{appoint.date} &nbsp;</li>
-                                    </ul>
-                                    </Card.Body>
-                                </Card>
+                                    <Card>
+                                        <Card.Body
+                                            onClick={()=>selected(appoint)}
+                                            key={appoint.id} >
+                                            <Card.Title>Appointment number: &nbsp; {appoint.id} </Card.Title>
+                                            <Card.Title>Treatment:&nbsp;{appoint.Intervention.name} </Card.Title>
+                                            <Card.Title>Price:&nbsp;£{appoint.Intervention.price}</Card.Title>
+                                            <Card.Title>Date:&nbsp;{appoint.date}</Card.Title>
+                                            </Card.Body>
+                                        </Card>
                                 </Container>
-                             </>
+                            </>
                             )
                         }
                     )

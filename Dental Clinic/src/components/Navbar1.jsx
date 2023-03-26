@@ -72,15 +72,12 @@ if (datosCredentialsRdx.credentials.usuario.roles.includes('Admin')) {
             <Nav.Link as={Link} to="/about">
                 About
             </Nav.Link>
-        <Nav.Link as={Link} to="/detail">
-                Detail
-            </Nav.Link>
             <Nav.Link as={Link} to="/users">
                 Users
             </Nav.Link>
-                <Nav.Link as={Link} to="/userDetails">
-                UserDetails
-                </Nav.Link>
+                <Nav.Link as={Link} to="/viewdoctorappointment">
+                View all appointments
+            </Nav.Link>
             <NavDropdown title="Dental treatments" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">
                     Invisible orthodontics
@@ -107,7 +104,7 @@ if (datosCredentialsRdx.credentials.usuario.roles.includes('Doctor')) {
 
     return <Navbar bg="dark" expand="lg" variant="dark">
     <Container>
-        <Navbar.Brand as={Link} to="/home"></Navbar.Brand>
+    <Navbar.Brand as={Link} to="/home"> Dental Studio </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto"> 
@@ -118,14 +115,8 @@ if (datosCredentialsRdx.credentials.usuario.roles.includes('Doctor')) {
             <Nav.Link as={Link} to="/about">
                 About
             </Nav.Link>
-        <Nav.Link as={Link} to="/detail">
-                Detail
-            </Nav.Link>
-            <Nav.Link as={Link} to="/userDoctor">
-                Users
-            </Nav.Link>
             <Nav.Link as={Link} to="/viewdoctorappointment">
-               View Doctor appointments
+                View Doctor appointments
             </Nav.Link>
             <NavDropdown title="Dental treatments" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">

@@ -6,7 +6,7 @@ import { userData } from "../userSlice";
 import { addChoosen } from '../detailSlice';
 import Container from 'react-bootstrap/esm/Container';
 import Card from 'react-bootstrap/esm/Card';
-import D12 from '../../assets/D12.jpg'
+
 
 export const Users = () => {
 
@@ -25,25 +25,20 @@ export const Users = () => {
             bringUsers(RdxCredentials.credentials.token)
                 .then(
                     result => {
-                        console.log(result.data, 'blaaaa')
-
                         setUsuarios(result.data)
                     }
                 )
                 .catch(error => console.log(error))
         }
 
-        console.log(usuarios, 'lololololo')
     },[usuarios])
 
     const selected = (persona) => {
-        
-        //Primero guardo en RDX los datos escogidos...
 
         dispatch(addChoosen({ choosenObject: persona }))
 
         setTimeout(()=>{
-            navigate("/userDetails");
+            navigate("/viewdoctorappointment");
         },250)
     }
 
@@ -52,8 +47,6 @@ export const Users = () => {
 <div>
     <Container> 
 
-            <Card style={{ width: '20rem' }}>
-
 {  usuarios.length > 0 ? 
 
     (<div> 
@@ -61,19 +54,25 @@ export const Users = () => {
             usuarios.map(
                 persona => {
                     return (
-                        <div 
-                            onClick={()=>selected(persona)} 
-                            key={persona.id}>
-                            {persona.name}
-                            
-                            
-                        </div>
+
+                        <>
+                        <Container className='Center' >
+                            <Card>
+                                <Card.Body
+                                    onClick={() => selected(persona)}
+                                    key={persona.id} >
+                                    <Card.Title>Name:&nbsp; {persona.name} </Card.Title>
+                                    <Card.Title>Surname:&nbsp; {persona.surname} </Card.Title>
+                                    <Card.Title>Email:&nbsp; {persona.email} </Card.Title>
+                                    <Card.Title>NIF:&nbsp; {persona.nif} </Card.Title>
+                                    </Card.Body>
+                                </Card>
+                        </Container>
+                    </>
                     )
                 }
             )
         }
-
-
     </div>)
 
     : 
@@ -81,7 +80,7 @@ export const Users = () => {
     (<div>coming...</div>)
 
 }
-            </Card>
+
     </Container>
 </div>
     )

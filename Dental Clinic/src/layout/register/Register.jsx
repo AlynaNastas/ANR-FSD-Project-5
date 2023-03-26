@@ -14,7 +14,7 @@ import './Register.css'
 
 export const Register = () => {
 
-
+  const navigate = useNavigate();
 
   const [credencials, setCredencials]= useState ({
     name:'',
@@ -137,8 +137,8 @@ useEffect(() => {
        .then((results) => {
         console.log(results)
          setTimeout(() => {
-           navigate("/login");
-         }, 3000);
+           navigate('/login');
+         }, 2000);
        })
        .catch(error => console.log(error));
   };

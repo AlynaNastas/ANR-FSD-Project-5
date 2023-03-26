@@ -13,7 +13,7 @@ export const UserDoctors = () => {
 
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+   // const navigate = useNavigate();
 
 
     useEffect(()=>{
@@ -39,11 +39,11 @@ export const UserDoctors = () => {
 
         dispatch(addChoosen({ choosenObject: persona }))
 
-        setTimeout(()=>{
+       /* setTimeout(()=>{
             navigate("/home");
-        },250)
+        },250)*/
     }
-    console.log(user, "hola soy users")
+
     return (
 
 <div>

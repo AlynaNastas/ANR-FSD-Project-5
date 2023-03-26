@@ -92,7 +92,6 @@ console.log(credencials)
 
 useEffect(() => {
   if (credentialsRdx.credentials.token) {
-    //Si No token...home redirect
     navigate("/");
   }
 }, []);
@@ -123,9 +122,7 @@ const checkError = (e) => {
   }));
 };
 
-/*const fakelog = () => {
-  console.log("victoria");
-};*/
+
 
 
 const logmee = () => {
@@ -143,17 +140,14 @@ const logmee = () => {
         
               }
           
-          
-                  console.log(datosBackend)
-              //Este es el momento en el que guardo en REDUX
+        
               dispatch(login({credentials: datosBackend}));
 
-              console.log(">> aquí sale el nombre",datosBackend.usuario.name)
 
-              setWelcome(`Hola de nuevo ${datosBackend.usuario.name}`);
+              setWelcome(`Hi, there! ${datosBackend.usuario.name}`);
 
               setTimeout(() => {
-                navigate("/");
+                navigate("/home");
               }, 3000);
           }
       )
@@ -166,7 +160,6 @@ const logmee = () => {
   return (
 
 
-  
 
     <div className='Regi'>
     <Container className='boody'>

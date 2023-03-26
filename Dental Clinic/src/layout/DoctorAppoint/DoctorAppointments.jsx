@@ -1,11 +1,10 @@
 
 import React, { useEffect, useState } from 'react'
-import Col from 'react-bootstrap/esm/Col';
-import Row from 'react-bootstrap/esm/Row';
 import Container from 'react-bootstrap/esm/Container';
 import { useSelector } from 'react-redux';
 import { viewDoctorappoint } from '../../services/apiCall';
 import { userData } from '../userSlice';
+import Card from 'react-bootstrap/esm/Card';
 
 
 
@@ -20,7 +19,6 @@ export const DoctorAppointments = () => {
     if(appointments.length === 0) {   
             viewDoctorappoint(credentialRdx.credentials?.token)
             .then( result => {
-                console.log(result, 'HOLAAAAAAAA TU'); 
                     setAppointments(result.data)
                 }
             )
@@ -28,27 +26,27 @@ export const DoctorAppointments = () => {
         }
     }, [appointments])
 
-console.log(appointments, ' HEHE')
-
-  return (
-    <>
-    <Container className="appoinment">
-        <Row>
-            <Col>
-                <div className="Lo">
+    return (
+                <div className="Center">
                     {appointments.length > 0 ? (
                         <div>
                             {
                                 appointments.map(
                                     app => {
                                         return (
-                                            <div
+                                <>
+                                    <Container className='Center' >
+                                        <Card>
+                                            <Card.Body
                                                 onClick={() => selected(app)}
                                                 key={app.id} >
-                                                <div>{app.date}</div> 
-                                                <div>{app.doctor_id}</div>
-                                                <div>{app.comments}</div>
-                                            </div>
+                                                <Card.Title>Date:&nbsp; {app.date} </Card.Title>
+                                                <Card.Title>Doctor ID:&nbsp; {app.doctor_id} </Card.Title>
+                                                <Card.Title>Comments:&nbsp; {app.comments}</Card.Title>
+                                                </Card.Body>
+                                            </Card>
+                                    </Container>
+                                </>
                                         );
                                     }
                                 )
@@ -58,9 +56,5 @@ console.log(appointments, ' HEHE')
                         <div>coming ... </div>
                     )}
                 </div>
-            </Col>
-        </Row>
-    </Container>
-</>
 )
 }

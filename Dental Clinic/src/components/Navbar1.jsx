@@ -124,6 +124,9 @@ if (datosCredentialsRdx.credentials.usuario.roles.includes('Doctor')) {
             <Nav.Link as={Link} to="/userDoctor">
                 Users
             </Nav.Link>
+            <Nav.Link as={Link} to="/viewdoctorappointment">
+               View Doctor appointments
+            </Nav.Link>
             <NavDropdown title="Dental treatments" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">
                     Invisible orthodontics
@@ -166,6 +169,9 @@ if (datosCredentialsRdx.credentials.usuario.roles.includes('User')) {
             </Nav.Link>
             <Nav.Link as={Link} to="/createappointment">
                 Schedule appointment
+            </Nav.Link>
+            <Nav.Link as={Link} to="/viewyourappoint">
+                View appointment
             </Nav.Link>
             <NavDropdown title="Dental treatments" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">

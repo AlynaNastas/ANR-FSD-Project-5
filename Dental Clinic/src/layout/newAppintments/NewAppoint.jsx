@@ -18,21 +18,33 @@ console.log(credentialsRdx.credentials.usuario)
   //const navigate = useNavigate();
 
 
-  const [treatments, setTreatments ] = useState([
+ /* const [treatments, setTreatments ] = useState([
 
   {  id:1,
-    treatment: "Invisible orthodontics"
+    treatmentname: "Invisible orthodontics"
   },
   {
     id:2,
-    treatment: "Dental cleaning"
+    treatmentname: "Dental cleaning"
   },
   {
     id:3,
-    treatment: "Teeth whitening"
+    treatmentname: "Teeth whitening"
   }
 
+  ]);*/
+
+  const [doctors, setDoctors] = useState([
+    {
+      id: 1,
+      doctorname: "Alyna Nastas Romaniuc"
+    },
+    {
+      id: 3,
+      doctorname: "María Josep Fernández"
+    }
   ]);
+
 
   
 
@@ -91,7 +103,7 @@ console.log(credencials,'enviando cita a railway')
     <div className='Reg'>
     <Container className='boody'>
     <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      {/* <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Doctor</Form.Label>
 
         <InputText  
@@ -102,7 +114,17 @@ console.log(credencials,'enviando cita a railway')
         placeholder={""}
         changeFunction={(e) => inputHandler(e)}
         blurFunction={(e)=> checkError(e)} />
-    </Form.Group>
+    </Form.Group> */}
+
+    <Form.Label>Doctor:</Form.Label>
+        <Form.Select name={"doctor_id"} onChange={(e) => inputHandler(e)} aria-label="Default select example">
+                                    <option>Choose Doctor:</option>
+                                    {doctors.map((doctor) => {
+                                        return (
+                                            <option key={doctor.id} value={doctor.id}>{doctor.doctorname}</option>
+                                        )
+                                    })}
+                                </Form.Select>
 
 
     {/* <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -127,6 +149,16 @@ console.log(credencials,'enviando cita a railway')
           blurFunction={(e)=> checkError(e)}/>
     
       </Form.Group>
+
+      {/* <Form.Label>Interventions:</Form.Label>
+               <Form.Select name={"Intervention_id"} onChange={(e) => inputHandler(e)} aria-label="Default select example">
+                                    <option>Choose your Treatment:</option>
+                                    {treatments.map((treatment) => {
+                                        return (
+                                            <option key={treatment.id} value={treatment.id}>{treatment.treatmentname}</option>
+                                        )
+                                    })}
+                                </Form.Select> */}
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Time slot</Form.Label>

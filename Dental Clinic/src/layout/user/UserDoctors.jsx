@@ -22,7 +22,7 @@ export const UserDoctors = () => {
             bringUsersDoctor(RdxCredentials.credentials.token)
                 .then(
                     result => {
-                        console.log(result.data, 'blaaaa')
+               
 
                         setUser(result.data)
                     }
@@ -30,12 +30,11 @@ export const UserDoctors = () => {
                 .catch(error => console.log(error))
         }
 
-        console.log(user, 'lololololo')
     },[user])
 
     const selected = (persona) => {
         
-        //Primero guardo en RDX los datos escogidos...
+    
 
         dispatch(addChoosen({ choosenObject: persona }))
 

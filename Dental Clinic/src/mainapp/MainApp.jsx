@@ -10,6 +10,7 @@ import { UserDoctors } from "../layout/user/UserDoctors"
 import { NewAppoint } from "../layout/newAppintments/NewAppoint"
 import { ViewAppoint } from "../layout/newAppintments/ViewAppoint"
 import { DoctorAppointments } from "../layout/DoctorAppoint/DoctorAppointments"
+import { Aboutus } from "../layout/about/Aboutus"
 
 
 
@@ -24,10 +25,11 @@ return (
     <Route path= '/register' element={<Register/>}/>
     <Route path= '/userDoctor' element={<UserDoctors/>}/>
     <Route path= '/createappointment' element={<NewAppoint/>}/>
-    <Route path= '/viewyourappoint' element={<ViewAppoint/>}/>
     <Route path= '/viewdoctorappointment' element={<DoctorAppointments/>}/>
+    <Route path= '/viewyourappoint' element={<ViewAppoint/>}/>
     <Route path= '/profile' element={<Profile1/>}/>
     <Route path= '/users' element={<Users/>}/>
+    <Route path= '/about' element={<Aboutus/>}/>
 
     </Routes>
     <Footer1/>

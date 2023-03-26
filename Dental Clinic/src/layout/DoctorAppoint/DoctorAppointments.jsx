@@ -1,40 +1,64 @@
-import React, {useState, useEffect} from 'react';
-import { viewDoctorappoint } from "../../services/apiCall"; 
-import { useSelector } from "react-redux";
-import { userData } from "../userSlice";
 
+import React, { useEffect, useState } from 'react'
+import Col from 'react-bootstrap/esm/Col';
+import Row from 'react-bootstrap/esm/Row';
+import Container from 'react-bootstrap/esm/Container';
+import { useSelector } from 'react-redux';
+import { viewDoctorappoint } from '../../services/apiCall';
+import { userData } from '../userSlice';
 
 
 export const DoctorAppointments = () => {
-
-    const [doctorApp, setdoctorApp] = useState([]);
-
-    const RdxCredentials = useSelector(userData);
+    const credentialRdx = useSelector(userData)
 
 
-    // const dispatch = useDispatch();
-    // const navigate = useNavigate();
+    const [appointments, setAppointments] = useState([]);
 
 
-    useEffect(()=>{
-        if(RdxCredentials.credentials.token){
-            viewDoctorappoint(RdxCredentials.credentials.token)
-                .then(
-                    result => {
-                        console.log(result.data, 'blaaaa')
-
-                        setdoctorApp(result.data)
-                    }
-                )
-                .catch(error => console.log(error))
+    useEffect(() => {
+    if (credentialRdx.credentials.token) {   
+            viewDoctorappoint(credentialRdx.credentials?.token)
+            .then( (data) => {
+                console.log(data); 
+                    setAppointments(data)
+                }
+            )
+            .catch(error => console.log(error));
         }
+    }, [])
+     console.log(credentialRdx.credentials.token, 'hhhhhh')
+  return (
+    <>
 
-        
-    },[RdxCredentials.credentials.token])
-
-    console.log(doctorApp, 'Hi')
-
-    return (
-<div> </div>
-    )
-    }
+    <Container className="appoinment">
+        <Row>
+            <Col>
+                <div className="Lo">
+                    {appointments.length > 0 ? (
+                        <div>
+                            {
+                                appointments.map(
+                                    console.log(appointments),
+                                    (app) => {
+                                        return (
+                                            <div
+                                                onClick={() => selected(app)}
+                                                key={app.id} >
+                                                {app.id}
+                                                {app.data}
+                                            </div>
+                                        );
+                                    }
+                                )
+                            }
+                        </div>
+                    ) : (
+                        <div>coming ... </div>
+                    )}
+                </div>
+            </Col>
+        </Row>
+    </Container>
+</>
+)
+}

@@ -55,17 +55,21 @@ export const ViewAppoint = () => {
                                     {appoint.date} &nbsp;
                                     {appoint.Employee.User.name}
                                 </div> */}
-                                <div
+                                <Container className='Center' >
+                                <Card>
+                                <Card.Body
                                     onClick={()=>selected(appoint)}
                                     key={appoint.id}>
                                     <ul>
                                         <li>{appoint.id}</li>
                                         <li>{appoint.Intervention.name} &nbsp;</li>
-                                        <li>£ {appoint.Intervention.price}</li>
+                                        <li>£{appoint.Intervention.price}</li>
                                         <li>{appoint.date} &nbsp;</li>
                                     </ul>
-                                </div>
-                                </>
+                                    </Card.Body>
+                                </Card>
+                                </Container>
+                             </>
                             )
                         }
                     )

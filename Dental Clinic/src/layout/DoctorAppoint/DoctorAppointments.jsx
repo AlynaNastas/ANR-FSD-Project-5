@@ -8,6 +8,7 @@ import { viewDoctorappoint } from '../../services/apiCall';
 import { userData } from '../userSlice';
 
 
+
 export const DoctorAppointments = () => {
     const credentialRdx = useSelector(userData)
 
@@ -16,20 +17,21 @@ export const DoctorAppointments = () => {
 
 
     useEffect(() => {
-    if (credentialRdx.credentials.token) {   
+    if(appointments.length === 0) {   
             viewDoctorappoint(credentialRdx.credentials?.token)
-            .then( (data) => {
-                console.log(data); 
-                    setAppointments(data)
+            .then( result => {
+                console.log(result, 'HOLAAAAAAAA TU'); 
+                    setAppointments(result.data)
                 }
             )
             .catch(error => console.log(error));
         }
-    }, [])
-     console.log(credentialRdx.credentials.token, 'hhhhhh')
+    }, [appointments])
+
+console.log(appointments, ' HEHE')
+
   return (
     <>
-
     <Container className="appoinment">
         <Row>
             <Col>
@@ -38,14 +40,14 @@ export const DoctorAppointments = () => {
                         <div>
                             {
                                 appointments.map(
-                                    console.log(appointments),
-                                    (app) => {
+                                    app => {
                                         return (
                                             <div
                                                 onClick={() => selected(app)}
                                                 key={app.id} >
-                                                {app.id}
-                                                {app.data}
+                                                <div>{app.date}</div> 
+                                                <div>{app.doctor_id}</div>
+                                                <div>{app.comments}</div>
                                             </div>
                                         );
                                     }

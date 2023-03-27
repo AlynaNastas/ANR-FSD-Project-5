@@ -1,6 +1,6 @@
 import Carousel from 'react-bootstrap/Carousel';
-import D2 from '../../assets/D2.jpeg'
-import D4 from '../../assets/D4.jpeg'
+import D2 from '../../assets/D2.jpg'
+import D4 from '../../assets/D4.jpg'
 import D5 from '../../assets/D5.png'
 
 

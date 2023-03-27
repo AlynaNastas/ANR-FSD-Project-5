@@ -1,4 +1,4 @@
-import D9 from '../../assets/D9.jpeg'
+import D9 from '../../assets/D9.jpg'
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/esm/Container';

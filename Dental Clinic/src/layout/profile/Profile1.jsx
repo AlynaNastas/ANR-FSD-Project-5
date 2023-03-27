@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { getUserProfile } from '../../services/apiCall';
 import { userData } from '../userSlice';
 import'./Profile1.css'
-import '../../assets/D3.jpeg'
+
 
 
 
